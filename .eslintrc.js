@@ -4,7 +4,8 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
-      "experimentalObjectRestSpread": true
+      'experimentalObjectRestSpread': true,
+      'jsx': true
     }
   },
   extends: [
@@ -12,11 +13,11 @@ module.exports = {
   ],
   env: {
     'node': true,
-    "es6": true
+    'es6': true,
   },
   rules: {
-    "no-undef": "warn",
-    "newline-before-return": "error",
-    "indent": ["error", 2, {"SwitchCase": 1}]
+    'no-undef': 'warn',
+    'newline-before-return': 'error',
+    'indent': ['error', 2, {'SwitchCase': 1}]
   }
 };
