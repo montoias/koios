@@ -28,6 +28,7 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-plugin-meteor": "^4.0.1",
+    "eslint-plugin-react": "^7.0.1",
     "lint-staged": "^3.6.0",
     "pre-commit": "^1.2.2"
   }
