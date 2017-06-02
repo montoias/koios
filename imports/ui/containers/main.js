@@ -6,17 +6,9 @@ import {
   Link
 } from 'react-router-dom'
 
-const Login = () => {
-  return (<div>Login</div>);
-}
-
-const Home = () => {
-  return (<div>Home</div>);
-}
-
-const Suggestions = () => {
-  return (<div>Suggestions</div>);
-}
+import Suggestions from './suggestions';
+import Home from './home';
+import Login from './login';
 
 class Main extends React.Component {
   render() {
@@ -30,7 +22,7 @@ class Main extends React.Component {
       </Router>
     );
   }
-}
+};
 
 export default createContainer(function() {
   return {};
