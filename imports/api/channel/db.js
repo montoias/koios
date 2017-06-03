@@ -11,12 +11,12 @@ const getChannel = (id) => {
 const join = (id) => {
   return Channels.update(
     { _id: id },
-    { $addToSet: {users: Meteor.userId() } }
+    { $addToSet: { users: Meteor.userId() } }
   );
 }
 
 const create = () => {
-  return Channels.insert({
+  Channels.insert({
     users: [Meteor.userId()]
   });
 }

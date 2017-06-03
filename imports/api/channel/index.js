@@ -3,13 +3,14 @@ import Channels, { getChannel, join, create } from './db';
 
 export { Channels };
 
-if (!Meteor.isServer) {
+
+if (Meteor.isServer) {
   Meteor.publish('channel', getChannel);
+  Meteor.methods({
+    'channel.join': join,
+    'channel.create': create
+  });
 }
 
-Meteor.methods({
-  'channel.join': join,
-  'channel.create': create
-});
 
 

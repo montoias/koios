@@ -24,7 +24,7 @@ class Home extends React.Component {
   _redirectOrCreateChat(urlToRedirect) {
     const { router } = this.context;
 
-    Meteor.call('channel.create', function() {
+    Meteor.call('channel.create', () => {
       router.history.push(urlToRedirect);
     });
   }

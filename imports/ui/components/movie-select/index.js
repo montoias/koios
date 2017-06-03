@@ -30,7 +30,6 @@ export default class MovieSelect extends React.Component {
     this.props.onVote(this.props.movie.id, value)
   }
 
-
   _renderMovieCover(photo) {
     return (
       <div key={photo.url} className="movie__photo-wrapper">

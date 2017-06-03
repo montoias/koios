@@ -1,1 +1,2 @@
-import './accounts/config'
+import './accounts/config';
+import '../../api';
