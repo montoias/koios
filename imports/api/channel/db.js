@@ -8,9 +8,9 @@ const getChannel = (id) => {
   return Channels.find(id);
 }
 
-const join = (id) => {
+const join = (channelId) => {
   return Channels.update(
-    { _id: id },
+    { channelId },
     { $addToSet: { users: Meteor.userId() } }
   );
 }

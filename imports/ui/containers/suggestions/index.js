@@ -6,7 +6,7 @@ import MovieSelect from '../../components/movie-select';
 
 class Suggestions extends React.Component {
   componentDidMount() {
-    Meteor.call('channel.join', Meteor.userId());
+    Meteor.call('channel.join', this.props.channelId);
   }
 
   render() {
