@@ -21,10 +21,10 @@ class Home extends React.Component {
     });
   }
 
-  _redirectOrCreateChat(urlToRedirect) {
+  _redirectOrCreateChat(urlToRedirect, channelId) {
     const { router } = this.context;
 
-    Meteor.call('channel.create', () => {
+    Meteor.call('channel.create', channelId, () => {
       router.history.push(urlToRedirect);
     });
   }
@@ -41,14 +41,14 @@ class Home extends React.Component {
         <div className="home__container">
           <div className="input-field home__container__input">
             <input placeholder="Share with your friends...." type="text" onChange={({target}) => this.setState({channelId: target.value}) } value={this.state.channelId} />
-            <div className="btn-floating btn-large waves-effect waves-light blue" onClick={this._redirectOrCreateChat.bind(this, `/suggestions/${this.state.channelId}`)}>    
+            <div className="btn-floating btn-large waves-effect waves-light blue" onClick={this._redirectOrCreateChat.bind(this, `/suggestions/${this.state.channelId}`, this.state.channelId)}>    
               <i className="material-icons right">send</i>
             </div>
           </div>
 
           <div className=" home__container__or">OR</div>
           
-          <div onClick={this._redirectOrCreateChat.bind(this, `/suggestions/${this.state.ip}`)} className="waves-effect waves-light btn-large blue">
+          <div onClick={this._redirectOrCreateChat.bind(this, `/suggestions/${this.state.ip}`, this.state.ip)} className="waves-effect waves-light btn-large blue">
             <i className="material-icons right ">wifi</i>
             Connect
           </div>

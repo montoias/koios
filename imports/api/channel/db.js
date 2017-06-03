@@ -15,8 +15,13 @@ const join = (id) => {
   );
 }
 
-const create = () => {
+const create = (channelId) => {
+  if (Channels.find({ channelId }).fetch().length > 0) {
+    return;
+  }
+
   Channels.insert({
+    channelId,
     users: [Meteor.userId()]
   });
 }
