@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { User } from '../../api/user';
+import { User } from '../../../api';
 
 export default class Login extends Component {
   login() {
