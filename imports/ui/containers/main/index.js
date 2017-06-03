@@ -13,7 +13,7 @@ class Main extends React.Component {
         <div>
           <Route exact path="/" component={Home}/>
           <Route path="/login" component={Login}/>
-          <Route path="/suggestions" component={Suggestions}/>
+          <Route path="/suggestions/:id" component={Suggestions}/>
         </div>
       </Router>
     );
