@@ -1,4 +1,6 @@
-import './votes';
 import User from './user';
+import { Channels } from './channel';
+import { Votes } from './vote';
 
-export { User };
+export { Channels, Votes, User };
+

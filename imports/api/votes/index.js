@@ -4,4 +4,3 @@ import { getVotesForChannel } from './db';
 if (Meteor.isServer) {
   Meteor.publish('votes', getVotesForChannel);
 }
-

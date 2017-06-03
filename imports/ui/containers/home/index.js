@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -20,6 +21,14 @@ class Home extends React.Component {
     });
   }
 
+  _redirectOrCreateChat(urlToRedirect) {
+    const { router } = this.context;
+
+    Meteor.call('channel.create', function() {
+      router.history.push(urlToRedirect);
+    });
+  }
+
   render() {
     return (
       <div>
@@ -32,21 +41,25 @@ class Home extends React.Component {
         <div className="home__container">
           <div className="input-field home__container__input">
             <input placeholder="Share with your friends...." type="text" onChange={({target}) => this.setState({channelId: target.value}) } value={this.state.channelId} />
-            <Link className="btn-floating btn-large waves-effect waves-light blue" to={`/suggestions/${this.state.channelId}`}>    
+            <div className="btn-floating btn-large waves-effect waves-light blue" onClick={this._redirectOrCreateChat.bind(this, `/suggestions/${this.state.channelId}`)}>    
               <i className="material-icons right">send</i>
-            </Link>
+            </div>
           </div>
 
           <div className=" home__container__or">OR</div>
           
-          <Link className="waves-effect waves-light btn-large blue" to={`/suggestions/${this.state.ip}`}>
+          <div onClick={this._redirectOrCreateChat.bind(this, `/suggestions/${this.state.ip}`)} className="waves-effect waves-light btn-large blue">
             <i className="material-icons right ">wifi</i>
             Connect
-          </Link>
+          </div>
         </div>
       </div>
     );
   }
+}
+
+Home.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default createContainer(() => {
