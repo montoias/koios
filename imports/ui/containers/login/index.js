@@ -1,13 +1,14 @@
-import React from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
+import React, { Component } from 'react';
+import { User } from '../../../api';
 
-const Login = () => {
-  return (
-    <div>Login</div>
-  );
-};
+export default class Login extends Component {
+  login() {
+    User.loginWithFacebook();
+  }
 
-export default createContainer(function() {
-  return {};
-}, Login);
-
+  render() {      
+    return (
+      <div onClick={this.login.bind(this)}>Login with Facebook</div>
+    )
+  }
+}
