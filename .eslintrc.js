@@ -16,8 +16,9 @@ module.exports = {
     'eslint:recommended'
   ],
   env: {
-    'node': true,
-    'es6': true,
+    node: true,
+    es6: true,
+    browser: true
   },
   settings: {
     react: {
